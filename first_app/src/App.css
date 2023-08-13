@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+.wrapper {
+  min-height: 100vh;
+  width: 100vw;
+
+  background-color: hsl(200, 14%, 13%);
+
+  display: grid;
+  place-items: center;
+}
+
+.container {
+  width: 40rem;
+  aspect-ratio: 3/2;
+
+  background-color: hsl(200, 14%, 23%);
+
+  border-radius: 15px;
+
+  display: grid;
+  place-items: center;
+}
