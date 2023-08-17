@@ -38,11 +38,11 @@
 }
 
 
-nav ul li:not(:last-child) a{
+nav ul li:not(:nth-child(3)) a{
   --primary: #ffffff;
 }
 
-[blurNagivation-bar='true']{
+[blur-nagivation-bar='true']{
   background-image: url('https://img.rawpixel.com/private/static/images/website/2022-05/428-jackanstey-rp-october2019-0185-kwan-a.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=55f756d7c7af574df1b0d14845e2eed7');
   background-position: center;
   background-size: cover;
@@ -77,7 +77,3 @@ nav ul li:not(:last-child) a{
   align-items: center;
 }
 
-/* [ppLogo='true'] img{
-    width: 30px;
-    aspect-ratio: 1;
-} */

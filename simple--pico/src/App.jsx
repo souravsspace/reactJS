@@ -1,4 +1,4 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 import './App.css'
 import Navigation from './components/Navigation'
 import About from './components/About'
@@ -8,15 +8,14 @@ import Footer from './components/Footer'
 
 
 function App() {
-
   return (
     <>
 
-      <Navigation />
-      <About />
-      <Courses />
-      <Contact />
-      <Footer />
+        <Navigation/> 
+        <About />
+        <Courses />
+        <Contact />
+        <Footer />
 
     </>
   )

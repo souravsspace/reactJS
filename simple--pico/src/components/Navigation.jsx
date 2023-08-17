@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function Navigation() {
+export default function Navigation(props) {
   return (
 
       <section>
-        <div blurNagivation-bar='true'></div>
+        <div blur-nagivation-bar='true'></div>
         <nav nagivation-bar='true' className='container-fluid'>
           <ul>
             <li><img src="./vite.svg"/></li>
@@ -14,6 +14,9 @@ export default function Navigation() {
             <li><a href="/">About</a></li>
             <li><a href="/">Courses</a></li>
             <li><a href="/" role='button' className='primary outline'>Contact</a></li>
+            {/* <li>
+              <input onClick={e=> props.changeTheme} type="checkbox" name="switch" role="switch" />
+            </li> */}
           </ul>
         </nav>
       </section>
