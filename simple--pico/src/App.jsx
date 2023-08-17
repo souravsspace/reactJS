@@ -1,8 +1,11 @@
 // import { useState } from 'react'
 import './App.css'
 import Navigation from './components/Navigation'
-import Form from './components/Form'
 import About from './components/About'
+import Courses from './components/Courses'
+import Contact from './components/Contact'
+import Footer from './components/Footer'
+
 
 function App() {
 
@@ -10,8 +13,10 @@ function App() {
     <>
 
       <Navigation />
-      <Form />
       <About />
+      <Courses />
+      <Contact />
+      <Footer />
 
     </>
   )

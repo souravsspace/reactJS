@@ -1,19 +1,83 @@
-/* [data-theme='light'],
-:root:not([data-theme='dark']) {
+
+/* Pink (Common styles) */
+:root {
+  --form-element-active-border-color: var(--primary);
+  --form-element-focus-color: var(--primary-focus);
+  --switch-color: var(--primary-inverse);
+  --switch-checked-background-color: var(--primary);
+}
+
+/* Pink Light scheme (Default) */
+/* Can be forced with data-theme="light" */
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
   --primary: #d81b60;
   --primary-hover: #c2185b;
   --primary-focus: rgba(216, 27, 96, 0.125);
   --primary-inverse: #FFF;
 }
 
+/* Pink Dark scheme (Auto) */
+/* Automatically enabled if user has Dark mode enabled */
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --primary: #d81b60;
+    --primary-hover: #e91e63;
+    --primary-focus: rgba(216, 27, 96, 0.25);
+    --primary-inverse: #FFF;
+  }
+}
+
+/* Pink Dark scheme (Forced) */
+/* Enabled if forced with data-theme="dark" */
 [data-theme="dark"] {
   --primary: #d81b60;
   --primary-hover: #e91e63;
   --primary-focus: rgba(216, 27, 96, 0.25);
   --primary-inverse: #FFF;
-} */
+}
+
 
 nav ul li:not(:last-child) a{
   --primary: #ffffff;
 }
 
+[blurNagivation-bar='true']{
+  background-image: url('https://img.rawpixel.com/private/static/images/website/2022-05/428-jackanstey-rp-october2019-0185-kwan-a.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=55f756d7c7af574df1b0d14845e2eed7');
+  background-position: center;
+  background-size: cover;
+  min-height: 200px;
+
+  position: relative;
+}
+
+[nagivation-bar='true']{
+  position: absolute;
+  top: 7%;
+}
+
+[courses-card='true'] img{
+  max-width: 100%;
+  width: 300px;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  object-position: center;
+}
+
+[footer-bar='true']{
+  background-image: url('https://img.rawpixel.com/private/static/images/website/2022-05/428-jackanstey-rp-october2019-0185-kwan-a.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=55f756d7c7af574df1b0d14845e2eed7');
+  background-position: center;
+  background-size: cover;
+  min-height: 100px;
+}
+
+[footer-bar='true'] nav {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+/* [ppLogo='true'] img{
+    width: 30px;
+    aspect-ratio: 1;
+} */
