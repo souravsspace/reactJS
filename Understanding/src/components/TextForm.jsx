@@ -27,6 +27,7 @@ export default function TextForm(props) {
       document.getElementById('totalNumbers').textContent = txt.length
       document.getElementById('timeToRead').textContent = 'Around' + ' ' + totalWords*60*0.008 + ' ' + 'seconds'
       // ((totalWords.length > 125) ? (0.008 * totalWords + 'MIN' : 0.008 * totalWords * 60))
+      props.showAlert('convert', 'done', 'success')
     }
     const clearAll = e => {
       document.getElementById('upperCase').textContent = ''
@@ -36,6 +37,7 @@ export default function TextForm(props) {
       document.getElementById('totalNumbers').textContent = ''
       document.getElementById('timeToRead').textContent = ''
       formatTxt('')
+      props.showAlert('clear', 'done', 'danger')
     }
 
     // const copyText = e => {
@@ -45,7 +47,7 @@ export default function TextForm(props) {
     // }
 
     return (
-    <div className={`bg-${props.mode} bg-gradient p-5`}>
+    <div className={`bg-${props.mode} p-5`}>
       <h1 className={`text-${props.invert}`}>{props.heading}</h1>
       {/* <label htmlFor="myBox" class="form-label">Example textarea</label> */}
       <textarea className={`form-control bg-${props.mode} text-${props.invert}`} value={txt} onChange={e=> formatTxt(e.target.value)} id="inputBox" rows="8"></textarea>

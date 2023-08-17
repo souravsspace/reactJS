@@ -15,7 +15,7 @@ export default function About(props) {
   // }) 
 
   return (
-    <div className= {`bg-${props.mode} bg-gradient text-${props.mode} cointainer p-5`}
+    <div className= {`bg-${props.mode} text-${props.mode} cointainer p-5`}
     style={{height: '95vh'}}
     // style={containerStyle}
     >
