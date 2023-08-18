@@ -23,7 +23,7 @@ export default function TextForm(props) {
       document.getElementById('upperCase').textContent = txt.toUpperCase()
       document.getElementById('lowerCase').textContent = txt.toLowerCase()
       document.getElementById('reverse').textContent = txt.split('').reverse('').join('')
-      const totalWords = document.getElementById('totalWords').textContent = txt.split(' ').length
+      const totalWords = document.getElementById('totalWords').textContent = txt.split(' ').length < 1 ? 0 : txt.split(' ').length
       document.getElementById('totalNumbers').textContent = txt.length
       document.getElementById('timeToRead').textContent = 'Around' + ' ' + totalWords*60*0.008 + ' ' + 'seconds'
       // ((totalWords.length > 125) ? (0.008 * totalWords + 'MIN' : 0.008 * totalWords * 60))
@@ -53,19 +53,19 @@ export default function TextForm(props) {
       <textarea className={`form-control bg-${props.mode} text-${props.invert}`} value={txt} onChange={e=> formatTxt(e.target.value)} id="inputBox" rows="8"></textarea>
       {/* <button className="btn btn-primary my-3" onClick={upperCase}>To UpperCase</button> */}
       
-      <button className="btn btn-primary my-3" onClick={convertText}>Convert</button>
-      <button className="btn btn-primary my-3 mx-3" onClick={clearAll}>Clear</button>
+      <button className={`btn btn-${props.clrPlate} my-3`} onClick={convertText}>Convert</button>
+      <button className={`btn btn-${props.clrPlate} my-3 mx-3`} onClick={clearAll}>Clear</button>
       {/* <button className="btn btn-primary my-3" onClick={copyText}>Copy Text</button> */}
 
       
       <div className='mt-3'>
         <h1 className={`text-${props.invert}`}>{props.footer}</h1>
-          <p className="text-primary mt-5">Words : <span className={`text-${props.invert}`} id='totalWords'></span></p>
-          <p className="text-primary">Characters : <span className={`text-${props.invert}`} id='totalNumbers'></span></p>
-          <p className='text-primary'>UpperCase : <span className={`text-${props.invert}`} id='upperCase'></span></p>
-          <p className='text-primary'>LowerCase : <span className={`text-${props.invert}`} id='lowerCase'></span></p>
-          <p className='text-primary'>Reverse : <span className={`text-${props.invert}`} id='reverse'></span></p>
-          <p className='text-primary'>Time to read : <span className={`text-${props.invert}`} id='timeToRead'></span></p>
+          <p className={`text-${props.clrPlate} mt5`}>Words : <span className={`text-${props.invert}`} id='totalWords'></span></p>
+          <p className={`text-${props.clrPlate}`}>Characters : <span className={`text-${props.invert}`} id='totalNumbers'></span></p>
+          <p className={`text-${props.clrPlate}`}>UpperCase : <span className={`text-${props.invert}`} id='upperCase'></span></p>
+          <p className={`text-${props.clrPlate}`}>LowerCase : <span className={`text-${props.invert}`} id='lowerCase'></span></p>
+          <p className={`text-${props.clrPlate}`}>Reverse : <span className={`text-${props.invert}`} id='reverse'></span></p>
+          <p className={`text-${props.clrPlate}`}>Time to read : <span className={`text-${props.invert}`} id='timeToRead'></span></p>
         
 
         {/* <span className="text-primary">Words : </span>

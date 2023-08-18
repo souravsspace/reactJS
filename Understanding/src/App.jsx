@@ -4,13 +4,18 @@ import './App.css'
 import Navigation from './components/Navigation'
 import TextForm from './components/TextForm'
 import Alert from './components/Alert'
+import ColorPlate from './components/ColorPlate'
 
 
 function App() {
   const [mode, setMode] = useState('dark')
   const [invert, setInvert] = useState('light')
   const [alert, setAlert] = useState(null)
+  const [clrPlate, setClrPlate] = useState('warning')
   
+  const toggleClr = (colorData) => {
+        setClrPlate(colorData);
+  }
 
   const showAlert = (message, type, clrType) => {
       setAlert({
@@ -20,7 +25,7 @@ function App() {
       })
       setTimeout( e => {
           setAlert(null)
-      }, 1000);
+      }, 1500);
   }
 
   const toggleMode = e => {
@@ -44,10 +49,11 @@ function App() {
     <>
       <div id="wrapper">
 
-            <Navigation mode={mode} toggleMode={toggleMode} invert={invert}/>
+            <Navigation clrPlate={clrPlate} mode={mode} toggleMode={toggleMode} invert={invert}/>
+            <ColorPlate clrPlate={clrPlate} toggleClr={toggleClr} mode={mode} invert={invert}/>
             {/* <About mode={mode} invert={invert} /> */}
             <Alert alert={alert} />
-            <TextForm mode={mode} invert={invert} showAlert={showAlert} />
+            <TextForm clrPlate={clrPlate} mode={mode} invert={invert} showAlert={showAlert} />
 
       </div>
     </>

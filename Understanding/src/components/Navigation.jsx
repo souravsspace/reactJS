@@ -6,7 +6,7 @@ export default function Navigation(props) {
   return (
       <nav className={`navbar navbar-expand-lg bg-${props.mode}`}>
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">{props.navLogo}</a>
+          <a className={`navbar-brand text${props.clrPlate}`} href="/">{props.navLogo}</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className={`navbar-toggler-icon bg-${props.mode} rounded`}></span>
           </button>
@@ -35,10 +35,11 @@ export default function Navigation(props) {
             </ul>
             <form className="d-flex" role="search">
               <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-              <button className="btn btn-primary" type="submit" onClick={(e)=> e.preventDefault()}>Search</button>
+              <button className={`btn btn-${props.clrPlate}`} type="submit" onClick={(e)=> e.preventDefault()}>Search</button>
             </form>
             <div className="form-check form-switch ms-4">
-                  <input onClick={props.toggleMode} className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"/>
+                  <a className={`text-${props.invert} btn btn-outline-${props.clrPlate}`} onClick={props.toggleMode}>Switch {props.invert}</a>
+                  {/* <input onClick={props.toggleMode} className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"/> */}
             </div>
           </div>
         </div>
