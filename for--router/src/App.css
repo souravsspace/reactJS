@@ -1,0 +1,16 @@
+
+#portfolio img {
+  max-width: 100%;
+  width: 300px;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  object-position: center;
+}
+
+#portfolio article div hgroup{
+  text-align: center;
+}
+
+
+
+/* for mobile */
