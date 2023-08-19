@@ -37,6 +37,9 @@
   --primary-inverse: #FFF;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 nav ul li:not(:nth-child(3)) a{
   --primary: #ffffff;

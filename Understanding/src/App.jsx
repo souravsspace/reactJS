@@ -1,10 +1,17 @@
 import { useState } from 'react'
 import './App.css'
-// import About from './components/About'
+import About from './components/About'
 import Navigation from './components/Navigation'
 import TextForm from './components/TextForm'
 import Alert from './components/Alert'
 import ColorPlate from './components/ColorPlate'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+import Home from './components/Home'
+import Footer from './components/Footer'
 
 
 function App() {
@@ -39,24 +46,32 @@ function App() {
         showAlert('enabled', 'dark mode', 'success')
       }
   }
-  
-  // const alertProps = {
-  //   title: "Hey Sourav",
-  //   subtitle: "I am an alert!"
-  // }
+
+  const navData = {
+    navLogo: "SouravUL",
+    home: "Home",
+    about: "About",
+    portfolio: "Portfolio"
+  }
 
   return (
-    <>
-      <div id="wrapper">
+      <div id='wrapper'>
 
-            <Navigation clrPlate={clrPlate} mode={mode} toggleMode={toggleMode} invert={invert}/>
+            
+            <Navigation clrPlate={clrPlate} navData={navData} mode={mode} toggleMode={toggleMode} invert={invert}/>
             <ColorPlate clrPlate={clrPlate} toggleClr={toggleClr} mode={mode} invert={invert}/>
-            {/* <About mode={mode} invert={invert} /> */}
             <Alert alert={alert} />
-            <TextForm clrPlate={clrPlate} mode={mode} invert={invert} showAlert={showAlert} />
+            <Router>
+              <Routes>
+                  <Route exact path='/' element={<Home clrPlate={clrPlate} mode={mode} invert={invert} />}></Route>
+                  <Route exact path='/textform' element={<TextForm clrPlate={clrPlate} mode={mode} invert={invert} showAlert={showAlert} />}></Route>
+                  <Route exact path='/about' element={<About clrPlate={clrPlate} mode={mode} invert={invert} />}></Route>
+              </Routes>
+            </Router>
+            <Footer clrPlate={clrPlate} mode={mode} invert={invert} navData={navData}/>
+
 
       </div>
-    </>
   )
 }
 

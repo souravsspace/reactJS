@@ -23,7 +23,7 @@ export default function TextForm(props) {
       document.getElementById('upperCase').textContent = txt.toUpperCase()
       document.getElementById('lowerCase').textContent = txt.toLowerCase()
       document.getElementById('reverse').textContent = txt.split('').reverse('').join('')
-      const totalWords = document.getElementById('totalWords').textContent = txt.split(' ').length < 1 ? 0 : txt.split(' ').length
+      document.getElementById('totalWords').textContent = txt.split(' ').length < 1 ? 0 : txt.split(' ').length
       document.getElementById('totalNumbers').textContent = txt.length
       document.getElementById('timeToRead').textContent = 'Around' + ' ' + totalWords*60*0.008 + ' ' + 'seconds'
       // ((totalWords.length > 125) ? (0.008 * totalWords + 'MIN' : 0.008 * totalWords * 60))

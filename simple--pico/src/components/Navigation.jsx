@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Navigation(props) {
+export default function Navigation() {
   return (
 
       <section>
@@ -11,9 +11,9 @@ export default function Navigation(props) {
             <li><strong>SouravUL</strong></li>
           </ul>
           <ul>
-            <li><a href="/">About</a></li>
-            <li><a href="/">Courses</a></li>
-            <li><a href="/" role='button' className='primary outline'>Contact</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#contact" role='button' className='primary outline'>Contact</a></li>
             {/* <li>
               <input onClick={e=> props.changeTheme} type="checkbox" name="switch" role="switch" />
             </li> */}
