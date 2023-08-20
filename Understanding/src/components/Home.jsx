@@ -5,7 +5,7 @@ export default function Home(props) {
     <>
       
       <section className={`conatiner bg-${props.mode}`}>
-          <div className="container d-flex align-items-center justify-content-center" style={{minHeight:'87vh'}}>
+          <div className="container d-flex align-items-center flex-column flex-lg-row justify-content-center" style={{minHeight:'87vh'}}>
               <div className='container '>
                   <h1 className={`text-${props.invert}`}>Responsive left-aligned hero with image</h1>
                   <p className={`text-${props.invert}`}>Quickly design and customize responsive mobile-first sites with Bootstrap, the worlds most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>

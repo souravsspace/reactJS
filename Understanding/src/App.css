@@ -9,6 +9,11 @@ body {
   color: white;
 }
 
+[themeSwitch='true']{
+  z-index: 9999;
+  cursor: pointer;
+}
+
 
 
 

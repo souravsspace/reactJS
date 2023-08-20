@@ -5,13 +5,11 @@ import Navigation from './components/Navigation'
 import TextForm from './components/TextForm'
 // import Alert from './components/Alert'
 import ColorPlate from './components/ColorPlate'
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './components/Home'
 import Footer from './components/Footer'
+import ThemeSwitcher from './components/ThemeSwitcher'
+
 
 
 function App() {
@@ -55,23 +53,59 @@ function App() {
   }
 
   return (
-      <div id='wrapper'>
-
-            
-            <Navigation clrPlate={clrPlate} navData={navData} mode={mode} toggleMode={toggleMode} invert={invert}/>
-            <ColorPlate clrPlate={clrPlate} toggleClr={toggleClr} mode={mode} invert={invert}/>
-            {/* <Alert alert={alert} /> */}
-            <Router>
+        <Router>
+              <Navigation 
+                    clrPlate={clrPlate} 
+                    navData={navData} 
+                    mode={mode} 
+                    invert={invert}
+              />
+              <ColorPlate 
+                    clrPlate={clrPlate} 
+                    toggleClr={toggleClr} 
+                    mode={mode} 
+                    invert={invert}
+              />
+              {/* <Alert alert={alert} /> */}
               <Routes>
-                  <Route exact path='/' element={<Home clrPlate={clrPlate} mode={mode} invert={invert} />}></Route>
-                  <Route exact path='/textform' element={<TextForm clrPlate={clrPlate} mode={mode} invert={invert} />}></Route>
-                  <Route exact path='/about' element={<About clrPlate={clrPlate} mode={mode} invert={invert} />}></Route>
+                    <Route exact path='*' element={
+                    <Home 
+                          clrPlate={clrPlate} 
+                          mode={mode} 
+                          invert={invert} 
+                    />}></Route>
+                    <Route exact path='/' element={
+                    <Home 
+                          clrPlate={clrPlate} 
+                          mode={mode} 
+                          invert={invert} 
+                    />}></Route>
+                    <Route exact path='/textform' element={
+                    <TextForm 
+                          clrPlate={clrPlate} 
+                          mode={mode} 
+                          invert={invert} 
+                    />}></Route>
+                    <Route exact path='/about' element={
+                    <About 
+                          clrPlate={clrPlate} 
+                          mode={mode} 
+                          invert={invert} 
+                    />}></Route>
               </Routes>
-            </Router>
-            <Footer clrPlate={clrPlate} mode={mode} invert={invert} navData={navData}/>
-
-
-      </div>
+              <ThemeSwitcher 
+                  clrPlate={clrPlate} 
+                  mode={mode} 
+                  invert={invert} 
+                  toggleMode={toggleMode}
+              />
+              <Footer 
+                    clrPlate={clrPlate} 
+                    mode={mode} 
+                    invert={invert} 
+                    navData={navData}
+              />
+        </Router>
   )
 }
 
