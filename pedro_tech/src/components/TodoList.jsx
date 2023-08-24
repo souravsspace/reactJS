@@ -1,29 +1,37 @@
 import React, { useState } from 'react'
-import { RxCross2 } from "react-icons/rx";
-
+import { RxCross2, RxCheckCircled } from "react-icons/rx";
 
 export default function TodoList() {
   const [value, setValue] = useState('')
-  const [todoList, setTodoList] = useState([])
+  const [todoItems, setTodoItems] = useState([])
 
-  const handleValue = (e) => {
-    setValue(e.target.value)
-  }
-
-  const addItems = () => {
+  const addItems = ()=> {
     const items = {
-        id: (todoList.length === 0) ? 1 : (todoList[todoList.length - 1].id + 1),
-        itemName: value
+      id: todoItems.length === 0 ? 1 : todoItems[todoItems.length - 1].id + 1,
+      name: value,
+      isHide: false
     }
-    setTodoList([...todoList, items])
+    setTodoItems([...todoItems, items])
     setValue('')
   }
 
-  const removeItem = (id) => {
-      const filteredItems = todoList.filter((item)=> item.id !== id)
-      setTodoList(filteredItems)
+  const removeItems = (id) => {
+    const filteredItems = todoItems.filter((item)=> item.id !== id)
+    setTodoItems(filteredItems)
   }
-  
+
+  const compeletedHandle = (id)=> {
+    setTodoItems(
+      todoItems.map((item)=> {
+          if(item.id === id){
+            return {...item, isHide: true}
+          } else {
+            return item
+          }
+      })
+    )
+  }
+
   return (
     <div style={{height:'100vh', display:'grid', placeItems:'center'}}>
         <article style={{padding: '3rem', width:'40rem'}}>
@@ -31,29 +39,31 @@ export default function TodoList() {
                 <input 
                   type="text" 
                   value={value}
-                  onChange={handleValue}
+                  onChange={e=> setValue(e.target.value)}
                   />
                 <button onClick={addItems}>Add</button>
             </div>
             <div style={{marginBlockStart:'2rem'}}>
                 <h3>Preview</h3>
-                {todoList.map((item, key)=> {
-                  return (
-                    <ul key={key} style={{listStyleType:'none'}}>
-                        <li style={{display:'flex', alignItems:'center', justifyContent:'space-between'}}>
-                            {item.itemName}
-                            <RxCross2 
-                              onClick={()=> removeItem(item.id)} 
-                              style={{cursor:'pointer'}} 
-                              /> 
+                {todoItems.map((item, key)=> (
+                    <ul key={key}>
+                        <li style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+                            {item.name}
+                            <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+                                <RxCheckCircled
+                                    style={{marginInlineEnd:'1.5rem', cursor:'pointer', color: item.isHide === true ? 'green' : 'white'}}
+                                    onClick={()=> compeletedHandle(item.id)}
+                                    />
+                                <RxCross2 
+                                    style={{color:'tomato', cursor:'pointer'}}
+                                    onClick={()=> removeItems(item.id)}
+                                    />
+                            </div>
                         </li>
                     </ul>
-                  )
-                })}
+                ))}
             </div>
         </article>
     </div>
   )
 }
-
-

@@ -5,7 +5,7 @@ export default function StateUse() {
   return (
     <>
       <ToExcrcise />
-      <DataSheet />
+      {/* <DataSheet /> */}
     </>
   )
 }
@@ -51,24 +51,57 @@ const DataSheet = () => {
 }
 
 
+
 // exercise
 const ToExcrcise = ()=> {
-    const [count, setCount] = useState(0)
+        const [count, setCount] = useState(0)
+        // const callCountFunction = ()=> {
+        //   console.log('i am an useState!')
+        //   return 0
+        // }
 
-    const forIncrease = () => setCount(count + 1)
-    const forDecrease = () => setCount(count - 1)
-    const setToZero = () => setCount(0)
+        // const [count, setCount] = useState((()=> callCountFunction()))
+        // const [count, setCount] = useState(()=> {
+        //   console.log('i am an useState!')
+        //   return 0
+        // })
+        // const [count, setCount] = useState(()=> callCountFunction())
+
+        
+        // const [state, setState] = useState({count: 19, name: 'sourav'})
+        // const count = state.count
+        // const name = state.name
+
+        // const forIncrease = () => {
+        //   setState(prevState => {
+        //       return {...state, count: prevState.count + 1}
+        //   })
+        // }
+        const forDecrease = () => setCount(count - 1)
+        const forIncrease = () => setColor(count + 1)
+        const setToZero = () => setCount(0)
+  
+        // const forIncreaseDub = () => {
+        //   setCount(previousCount => previousCount + 1)
+        //   setCount(previousCount => previousCount + 1)}
+        // const forDecreaseDub = () => {
+        //   setCount(previousCount => previousCount - 1)
+        //   setCount(previousCount => previousCount - 1)}
 
     return (
         <div className='container'>
             <article>
                 <div className='grid'>
-                    <button onClick={forIncrease}>Increase</button>
-                    <button onClick={forDecrease}>Decrease</button>
-                    <button onClick={setToZero}>Set to zero</button>
+                  <button onClick={forIncrease}>Increase</button>
+                  <button onClick={forDecrease}>Decrease</button>
+                  <button onClick={setToZero}>Set to zero</button>
+                    {/* <button onClick={forIncreaseDub}>Increase</button>
+                    <button onClick={forDecreaseDub}>Decrease</button> */}
                 </div>
                 <h3>
-                    Result : {count}
+                    Result : 
+                    {count}
+                    {/* {state.count} {state.name} */}
                 </h3>
             </article>
         </div>
