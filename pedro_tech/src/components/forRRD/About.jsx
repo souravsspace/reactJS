@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { toData } from '../ReactRouterDom'
 
 export default function About() {
+  const {name} = useContext(toData)
+
   return (
     <main className='container' style={{minHeight:'calc(80vh - 5rem)', marginBlockStart:'5rem'}}>
       <details>
-          <summary>Accordion 1</summary>
+          <summary>{name}</summary>
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere cupiditate consectetur nobis, accusamus quidem cumque modi, saepe ducimus deserunt quae at odit molestias dolor dolore voluptatem, suscipit obcaecati nihil sint.</p>
       </details>
       <details open>

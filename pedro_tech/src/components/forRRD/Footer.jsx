@@ -1,14 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-export default function Footer() {
+export default function Footer(props) {
   return (
     <article 
     style={{margin:'0', paddingBlock:'0'
-        // ,position:'absolute', bottom:'0', left:'0', right:'0'
         }}>
           <nav>
               <ul>
-                <li></li>
+                <li><Link to='/'>{props.forNav.home}</Link></li>
+                <li><Link to='/contact'>{props.forNav.contact}</Link></li>
+                <li><Link to='/about'>{props.forNav.about}</Link></li>
               </ul>
               <ul>
                 <li><small style={{fontFamily:'monospace'}}>powered by @souravukil 2019-23</small></li>

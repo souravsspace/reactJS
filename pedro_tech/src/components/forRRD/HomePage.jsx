@@ -1,10 +1,12 @@
 import React from 'react'
 
+
 export default function HomePage() {
+
   return (
     <div className='container' style={{marginBlock:'2rem'}}>
         <hgroup>
-            <h1>Front-End Developer</h1>
+            <h1>Front-End Developer {name}</h1>
             <h4>Complete Guide to the Front-End Developer Profession</h4>
         </hgroup>
         <article>

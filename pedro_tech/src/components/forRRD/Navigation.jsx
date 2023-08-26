@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function Navigation() {
+export default function Navigation(props) {
   return (
     <article style={{margin:'0', paddingBlock:'0'}}>
           <nav>
@@ -9,9 +9,9 @@ export default function Navigation() {
                 <li><strong>SouravUl</strong></li>
               </ul>
               <ul>
-                <li><Link to='/'>Home</Link></li>
-                <li><Link to='/About'>About</Link></li>
-                <li><Link to='/Contact'><button>Contact</button></Link></li>
+                <li><Link to='/'>{props.forNav.home}</Link></li>
+                <li><Link to='/About'>{props.forNav.about}</Link></li>
+                <li><Link to='/Contact'><button>{props.forNav.contact}</button></Link></li>
               </ul>
           </nav>
     </article>
