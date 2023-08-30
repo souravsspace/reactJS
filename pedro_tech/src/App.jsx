@@ -1,9 +1,9 @@
-import ReactRouterDom from './components/ReactRouterDom'
+import HookForm from './components/HookForm'
 import './css/pico.min.css'
 
 export default function App() {
   return (
-      <ReactRouterDom />
-  )
+      <HookForm />
+    )
 }
 

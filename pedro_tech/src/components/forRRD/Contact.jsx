@@ -4,10 +4,6 @@ import { toData } from '../ReactRouterDom'
 export default function Contact() {
   const {name, setName} = useContext(toData)
 
-  const setNameHandle = ()=> {
-      alert('set name done!')
-  }
-
   return (
     <div className='container' style={{padding:'2rem'}}>
         <article>
@@ -17,9 +13,9 @@ export default function Contact() {
           </hgroup>
           <section className='grid'>
               <input type='username' 
-              value={name} onChange={e=> setName(e.target.value)} 
+                value={name} onChange={e=> setName(e.target.value)} 
               />
-              <button onClick={setNameHandle}>Add</button>
+              <button>Add</button>
           </section>
         </article>
 
