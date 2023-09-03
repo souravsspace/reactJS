@@ -1,9 +1,5 @@
-import HookForm from './components/HookForm'
-import './css/pico.min.css'
-
+import HookEx from "./components/HookEx/HookEx";
+import "./css/pico.min.css";
 export default function App() {
-  return (
-      <HookForm />
-    )
+  return <HookEx/>
 }
-
