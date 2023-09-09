@@ -33,7 +33,7 @@ export const RtLogin: FC = () => {
               Login
             </button>
             <button
-              onClick={() => dispatch(logout({ username: "" }))}
+              onClick={() => dispatch(logout({ username: '' }))}
               type="button"
             >
               Log out
