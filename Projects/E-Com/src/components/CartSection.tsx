@@ -53,7 +53,7 @@ export default function CartSection({ isOpen }: CartSectionProps) {
       </div>
       <div className="flex justify-between flex-row-reverse">
         <Typography variant="h3">
-          Total -{" "}
+          Total :{" "}
           {formatCurrency(
             cartItems.reduce((total, cartItem) => {
               const items = userDetails.find((item) => item.id === cartItem.id);
