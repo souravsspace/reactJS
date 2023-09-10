@@ -9,8 +9,8 @@ export default function Store() {
         <Typography variant="h2">Store</Typography>
       </section>
       <section className="my-10 grid place-items-center place-content-center grid-cols-2 md:grid-cols-3 mx-auto gap-4">
-          {userDetails.map((user) => (
-            <StoreItems {...user} />
+          {userDetails.map((user, index) => (
+            <StoreItems key={index} {...user} />
           ))}
       </section>
     </main>

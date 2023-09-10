@@ -1,7 +1,6 @@
 import {
   Navbar,
   Typography,
-  Button,
   IconButton,
   Badge,
 } from "@material-tailwind/react";
@@ -9,6 +8,7 @@ import { Link } from "react-router-dom";
 import { useShopingCart } from "../context/ShopingContext";
 
 export default function Navigation() {
+  const {cartQuantity, openCart} = useShopingCart()
   const navItems = [
     { title: "Home", link: "/" },
     { title: "Store", link: "/store" },
@@ -38,8 +38,8 @@ export default function Navigation() {
               </Typography>
             ))}
           </ul>
-          <Badge content='1' placement="bottom-end" withBorder>
-            <IconButton className="rounded-full text-lg" variant="outlined">
+          <Badge content={cartQuantity} placement='bottom-end' withBorder>
+            <IconButton onClick={openCart} className="rounded-full text-lg" variant="outlined">
               <i className="fa-solid fa-store" />
             </IconButton>
           </Badge>
