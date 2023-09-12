@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { Auth } from "../Firebase/Firebase";
+import { auth } from "../Firebase/Firebase";
 
 type AuthContextProviderProps = {
   children: React.ReactNode;
@@ -13,21 +13,27 @@ type userType = {
 type AuthContextType = {
   currentUser: userType | null;
   signUp: ({ email, password }: userType) => void;
+  login: ({ email, password }: userType) => void;
 };
 
-const AuthContext = createContext({} as AuthContextType);
+const AuthContext = createContext<AuthContextType | null>(null);
 
 export const useAuth = () => useContext(AuthContext);
 
 export function AuthContextProvider({ children }: AuthContextProviderProps) {
   const [currentUser, setCurrentUser] = useState<any>();
 
-  const signUp = ({ email, password }: userType) => {
-    return Auth.createUserWithEmailAndPassword(email, password);
+  function signUp({ email, password }: userType){
+    return auth.createUserWithEmailAndPassword(email, password);
   };
 
+  function login({ email, password }: userType){
+    return auth.signInWithEmailAndPassword(email, password);
+  }
+
+
   useEffect(() => {
-    const unsubscribe = Auth.onAuthStateChanged((user) => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
     });
 
@@ -35,7 +41,7 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ currentUser, signUp }}>
+    <AuthContext.Provider value={{ currentUser, signUp, login }}>
       {children}
     </AuthContext.Provider>
   );

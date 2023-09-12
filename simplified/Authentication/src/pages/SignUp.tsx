@@ -10,10 +10,10 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../Context/AuthContext";
 
 export default function SignUp() {
-  const nameRef = useRef<HTMLInputElement>(null);
-  const emailRef = useRef<HTMLInputElement>(null);
-  const passwordRef = useRef<HTMLInputElement>(null);
-  const passwordConfirmRef = useRef<HTMLInputElement>(null);
+  const nameRef = useRef<HTMLInputElement | null>(null);
+  const emailRef = useRef<HTMLInputElement | null>(null);
+  const passwordRef = useRef<HTMLInputElement | null>(null);
+  const passwordConfirmRef = useRef<HTMLInputElement | null>(null);
 
   const { signUp } = useAuth();
   const [error, setError] = useState("");
@@ -28,15 +28,21 @@ export default function SignUp() {
 
     try {
       setError("");
-      setLoading(true)
-      await signUp({
-        email: emailRef.current?.value as string,
-        password: passwordRef.current?.value as string,
-      });
-    } catch {
+      setLoading(true);
+
+      const email = emailRef.current?.value as string;
+      const password = passwordRef.current?.value as string;
+
+      await signUp({ email, password });
+
+      console.log("Email:", email);
+      console.log("Password:", password);
+    } catch(err) {
       setError("Failed to create an account");
+      console.log(err);
     }
-    setLoading(false)
+    
+    setLoading(false);
   }
 
   return (
@@ -53,7 +59,10 @@ export default function SignUp() {
             {error}
           </Typography>
         )}
-        <form onSubmit={handleSubmit} className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
+        <form
+          onSubmit={(e) => handleSubmit(e)}
+          className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96"
+        >
           <div className="mb-4 flex flex-col gap-6">
             <Input
               size="lg"
@@ -104,8 +113,14 @@ export default function SignUp() {
             }
             containerProps={{ className: "-ml-2.5" }}
             crossOrigin={undefined}
+            required
           />
-          <Button disabled={loading} className="mt-6" fullWidth>
+          <Button
+            type="submit"
+            disabled={loading}
+            className="mt-6"
+            fullWidth
+          >
             Register
           </Button>
           <Typography color="gray" className="mt-4 text-center font-normal">
