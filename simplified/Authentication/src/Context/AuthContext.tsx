@@ -12,25 +12,24 @@ type userType = {
 
 type AuthContextType = {
   currentUser: userType | null;
-  signUp: ({ email, password }: userType) => void;
-  login: ({ email, password }: userType) => void;
+  signUp: ({ email, password }: userType) => Promise<any>;
+  login: ({ email, password }: userType) => Promise<any>;
 };
 
-const AuthContext = createContext<AuthContextType | null>(null);
+const AuthContext = createContext({} as AuthContextType);
 
 export const useAuth = () => useContext(AuthContext);
 
 export function AuthContextProvider({ children }: AuthContextProviderProps) {
   const [currentUser, setCurrentUser] = useState<any>();
 
-  function signUp({ email, password }: userType){
+  function signUp({ email, password }: userType) {
     return auth.createUserWithEmailAndPassword(email, password);
-  };
-
-  function login({ email, password }: userType){
-    return auth.signInWithEmailAndPassword(email, password);
   }
 
+  function login({ email, password }: userType) {
+    return auth.signInWithEmailAndPassword(email, password);
+  }
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
