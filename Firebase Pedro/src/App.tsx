@@ -3,16 +3,19 @@ import Footer from "./Components/Footer";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import { Home } from "./Pages/Home";
+import ShowDataProvider from "./Context/ShowData";
+
 function App() {
   return (
-    <>
+    <ShowDataProvider>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="*" element={<Home />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/home" element={<Home />} />
       </Routes>
       <Footer />
-    </>
+    </ShowDataProvider>
   );
 }
 

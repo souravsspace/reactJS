@@ -5,52 +5,18 @@ import {
   Button,
   Typography,
 } from "@material-tailwind/react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../Config/Firebase.config";
-import { addDoc, collection } from "firebase/firestore";
-import { DB } from "../Config/Firebase.config";
+import { Link } from "react-router-dom";
+import { useShowData } from "../Context/ShowData";
 
 export default function Signup() {
+  const { handleSignup, error, success, loading } = useShowData();
+
   const [name, setName] = useState("");
-  const [age, setAge] = useState(0);
+  const [age, setAge] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
-  const [disable, setDisable] = useState(false);
-
-  const navigate = useNavigate();
-
-  const userData = collection(DB, "users-data");
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-
-    if (password !== passwordConfirm) {
-      return setError("Passwords do not match");
-    }
-
-    try {
-      setError("");
-      setDisable(true);
-      setSuccess("Account created successfully!");
-      await createUserWithEmailAndPassword(auth, email, password);
-      await addDoc(userData, {
-        name: name as string,
-        age: age as number,
-        email: email as string,
-        password: password as string,
-      });
-      navigate("/home");
-    } catch {
-      setError("Failed to create an account");
-    }
-
-    setDisable(false);
-  }
 
   return (
     <main className="w-full h-[90vh] grid place-items-start place-content-center">
@@ -72,7 +38,9 @@ export default function Signup() {
           </Typography>
         )}
         <form
-          onSubmit={(e) => handleSubmit(e)}
+          onSubmit={(e) =>
+            handleSignup(e, password, passwordConfirm, name, age, email)
+          }
           className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96"
         >
           <div className="mb-4 flex flex-col gap-6">
@@ -139,12 +107,12 @@ export default function Signup() {
             crossOrigin={undefined}
             required
           />
-          <Button type="submit" disabled={disable} className="mt-6" fullWidth>
+          <Button type="submit" disabled={loading} className="mt-6" fullWidth>
             Register
           </Button>
           <Typography color="gray" className="mt-4 text-center font-normal">
             Already have an account?{" "}
-            <Link to="/" className="font-medium text-gray-900">
+            <Link to="/login" className="font-medium text-gray-900">
               Sign In
             </Link>
           </Typography>

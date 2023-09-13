@@ -8,24 +8,27 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import LogOut from "../Components/LogOut";
-import { useShowData } from "../Context/ShowData";
+// import { useShowData } from "../Context/ShowData";
 
 export function Home() {
-  const { userInfo } = useShowData();
-
+  // const { userInfo, getUserEmail } = useShowData();
   return (
     <main className="flex flex-col justify-center items-center py-[7rem] gap-y-10">
       <div className="w-[32rem]">
-        {userInfo.map((user: any, index) => (
-          <div key={index}>
-            <Typography variant="h3">{user.name}</Typography>
-            <Typography>
-              <span className="font-medium">Email:</span> {user.email}
-              <br />
-              <span className="font-medium">Age:</span> {user.age}
-            </Typography>
-          </div>
-        ))}
+        {/* {userInfo.map((user: any, index) => {
+          if (user.email === getUserEmail) {
+            return (
+              <div key={index}>
+                <Typography variant="h3">{user.name}</Typography>
+                <Typography>
+                  <span className="font-medium">Email:</span> {user.email}
+                  <br />
+                  <span className="font-medium">Age:</span> {user.age}
+                </Typography>
+              </div>
+            );
+          }
+        })} */}
       </div>
       <div className="w-[32rem]">
         <LogOut />
