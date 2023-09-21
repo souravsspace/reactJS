@@ -1,14 +1,10 @@
-// import UseReducer from "./hooks/UseReducer"
-
-import SearchAdd from "./others/SearchAdd"
+import UseReducer from "./hooks/UseReducer"
 
 function App() {
   return (
     <div className="conatiner">
       <article>
-        {/* <UseReducer /> */}
-        
-        <SearchAdd />
+        <UseReducer />
       </article>
     </div>
   )
