@@ -3,7 +3,7 @@ import RenderTodoCPPractice from "../components/RenderTodoCPPractice"
 
 type Todo = {
   id: number
-  name: string
+  name: string | null
   complete: boolean
 }
 
@@ -14,6 +14,7 @@ export const enum REDUCER_ACTION_TYPE {
   TOGGLE_TODO,
   DELETE_TODO,
   CLEAR_TODO,
+  EDIT_TODO,
 }
 
 type ActionType = {
@@ -47,6 +48,13 @@ function reducer(
       })
     case REDUCER_ACTION_TYPE.CLEAR_TODO:
       return []
+    case REDUCER_ACTION_TYPE.EDIT_TODO:
+      return state.map((todo) => {
+        if (todo.id === action.payload!.id) {
+          return { ...todo, name: prompt("Enter new todo name") }
+        }
+        return todo
+      })
     default:
       return state
   }

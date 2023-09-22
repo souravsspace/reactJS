@@ -32,28 +32,38 @@ export default function RenderTodoCPPractice({
       >
         {name}
       </span>
-      <button
-        onClick={() =>
-          dispatch({
-            type: REDUCER_ACTION_TYPE.TOGGLE_TODO,
-            payload: { id: id },
-          })
-        }
-        style={{ flex: "1" }}
-      >
-        Toggle
-      </button>
-      <button
-        onClick={() =>
-          dispatch({
-            type: REDUCER_ACTION_TYPE.DELETE_TODO,
-            payload: { id: id },
-          })
-        }
-        style={{ flex: "1" }}
-      >
-        Delete
-      </button>
+      <div style={{ flex: "1", display: "flex", gap: "0.5em" }}>
+        <button
+          onClick={() =>
+            dispatch({
+              type: REDUCER_ACTION_TYPE.TOGGLE_TODO,
+              payload: { id: id },
+            })
+          }
+        >
+          Toggle
+        </button>
+        <button
+          onClick={() =>
+            dispatch({
+              type: REDUCER_ACTION_TYPE.DELETE_TODO,
+              payload: { id: id },
+            })
+          }
+        >
+          Delete
+        </button>
+        <button
+          onClick={() =>
+            dispatch({
+              type: REDUCER_ACTION_TYPE.EDIT_TODO,
+              payload: { id: id },
+            })
+          }
+        >
+          Edit Text
+        </button>
+      </div>
     </div>
   )
 }
