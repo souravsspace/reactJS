@@ -1,10 +1,10 @@
-import UseReducer from "./hooks/UseReducer"
+import UseReducerPractice from "./hooks/UseReducerPractice"
 
 function App() {
   return (
     <div className="conatiner">
       <article>
-        <UseReducer />
+        <UseReducerPractice />
       </article>
     </div>
   )

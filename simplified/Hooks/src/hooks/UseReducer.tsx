@@ -1,5 +1,5 @@
 import { useReducer, useState } from "react"
-import RenderTodo from "../components/RenderTodo"
+import RenderTodo from "../components/RenderTodoCP"
 
 type Todo = {
   id: number
