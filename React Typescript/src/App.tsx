@@ -1,12 +1,11 @@
-import Props from "./Props/Props";
+import State from "./Hooks/State";
+
 
 function App() {
   return (
     <div>
       <article>
-
-        <Props />
-
+        <State />
       </article>
     </div>
   );
