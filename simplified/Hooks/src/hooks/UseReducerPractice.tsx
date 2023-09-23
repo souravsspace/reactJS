@@ -1,4 +1,4 @@
-import { FormEventHandler, useReducer, useState } from "react"
+import { FormEventHandler, useEffect, useReducer, useState } from "react"
 import RenderTodoCPPractice from "../components/RenderTodoCPPractice"
 
 type Todo = {
@@ -7,7 +7,13 @@ type Todo = {
   complete: boolean
 }
 
-const initState: Todo[] = []
+const getLocalItems = () => {
+  const todos = localStorage.getItem("todos")
+  if (todos) return JSON.parse(todos)
+  return []
+}
+
+const initState: Todo[] = getLocalItems()
 
 export const enum REDUCER_ACTION_TYPE {
   ADD_TODO,
@@ -81,21 +87,23 @@ export default function UseReducerPractice() {
     setValue("")
   }
 
-  console.log(todos)
+  const handleCLear = () => {
+    dispatch({
+      type: REDUCER_ACTION_TYPE.CLEAR_TODO,
+      payload: {},
+    })
+    localStorage.removeItem("todos")
+  }
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos))
+  }, [value])
 
   return (
     <div>
       <div style={{ display: "flex", gap: "10em" }}>
         <h3>UseReducer Practice</h3>
-        <button
-          onClick={() =>
-            dispatch({
-              type: REDUCER_ACTION_TYPE.CLEAR_TODO,
-              payload: {},
-            })
-          }
-          style={{ flex: "1" }}
-        >
+        <button onClick={handleCLear} style={{ flex: "1" }}>
           Clear
         </button>
       </div>

@@ -2,7 +2,7 @@ import { REDUCER_ACTION_TYPE } from "../hooks/UseReducerPractice"
 
 type RenderTodoCPPracticeProps = {
   id: number
-  name: string
+  name: string | null
   complete: boolean
   dispatch: React.Dispatch<any>
 }
