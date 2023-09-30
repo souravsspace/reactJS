@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .btn-green {
+    @apply bg-green-50 shadow-md text-black py-1 px-3 rounded-md border border-green-50;
+  }
+}
