@@ -1,4 +1,4 @@
-import InfiniteScrolling from "./components/InfiniteScrolling/InfiniteScrolling"
+import InfiniteScrolling from "./components/ScrollInfinite/InfiniteScrolling"
 import { ModeToggle } from "./components/ThemeProvider/ModeToggle"
 
 export default function App() {
