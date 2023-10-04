@@ -1,11 +1,13 @@
-import InfiniteScrolling from "./components/ScrollInfinite/InfiniteScrolling"
 import { ModeToggle } from "./components/ThemeProvider/ModeToggle"
+import Registration from "./css/Registration/Registration"
 
 export default function App() {
   return (
     <>
       <ModeToggle />
-      <InfiniteScrolling />
+      <div className="p-8">
+        <Registration />
+      </div>
     </>
   )
 }

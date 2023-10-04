@@ -1,0 +1,26 @@
+[
+  {
+    "name": "name",
+    "label": "Name",
+    "type": "text",
+    "placeholder": "e.g. John Doe"
+  },
+  {
+    "name": "email",
+    "label": "Email",
+    "type": "email",
+    "placeholder": "e.g. your@email.com"
+  },
+  {
+    "name": "password",
+    "label": "Password",
+    "type": "password",
+    "placeholder": ""
+  },
+  {
+    "name": "confirmPassword",
+    "label": "Confirm Password",
+    "type": "password",
+    "placeholder": ""
+  }
+]
