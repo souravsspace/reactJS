@@ -1,5 +1,5 @@
 import { ModeToggle } from "./components/ThemeProvider/ModeToggle"
-import Registration from "./css/Registration/Registration"
+import Registration from "./components/Registration/Registration"
 
 export default function App() {
   return (
